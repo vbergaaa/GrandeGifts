@@ -1,4 +1,4 @@
-#GrandeGifts
+# GrandeGifts Web Application
 
 this project is hosted online at https://grandegiftsryanvandenberg.azurewebsites.net
 
