@@ -1,0 +1,21 @@
+﻿using RyanGrandeGifts.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace RyanGrandeGifts.ViewModels
+{
+    public class HamperReadViewModel
+    {
+        public string HamperId { get; set; }
+        public string HamperName { get; set; }
+        public string HamperDescription { get; set; }
+        public double HamperPrice { get; set; }
+        public string Picture { get; set; }
+        public bool Active { get; set; }
+        public Category Category { get; set; }
+        public int OrderCount { get; set; }
+    }
+}

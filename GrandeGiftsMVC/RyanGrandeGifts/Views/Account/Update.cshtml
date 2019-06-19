@@ -1,0 +1,40 @@
+﻿@model AccountUpdateViewModel
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="col d-flex justify-content-center align-items-center bg-secondary">
+    <div class="card p-3 m-3" style="width: 18rem;">
+        <h2>Update your Profile</h2>
+        <form asp-action="Update" asp-controller="Account" asp-antiforgery="true" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="d-none">
+                <input asp-for="Id" />
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control" />
+                <span asp-validation-for="UserName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+                <span asp-validation-for="FirstName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+                <span asp-validation-for="LastName"></span>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" />
+                <a class="btn btn-secondary" href="/Account/Profile">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,71 @@
+﻿@model CartIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+    <div class="col">
+
+
+        <div class="col-md-6 d-flex mx-auto flex-column">
+            <h2>Shopping Cart</h2>
+            @if (Model.HamperOrders != null && Model.HamperOrders.Count() > 0)
+            {
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var h in Model.HamperOrders)
+                        {
+                            <tr>
+                                <td>@h.Hamper.HamperName</td>
+                                <td>
+                                    @Html.ActionLink("-", "Add", "Cart", new { id = h.Hamper.HamperId, qty = -1, url = "/Cart/" })
+                                    @h.Qty
+                                    @Html.ActionLink("+", "Add", "Cart", new { id = h.Hamper.HamperId, qty = 1, url = "/Cart/" })
+                                </td>
+                                <td>$@(h.Hamper.HamperPrice * h.Qty)</td>
+                                <td>@Html.ActionLink("Delete", "RemoveItem", "Cart", new { id = h.Hamper.HamperId }, new { @class = "text-danger" })</td>
+                            </tr>
+                        }
+                    <tr>
+                        <td class="text-info">Booking Fee</td>
+                        <td></td>
+                        <td class="text-info">$7.50</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Total:</th>
+                        <td></td>
+                        <th>$@(Model.HamperOrders.Select(ho => ho.Hamper.HamperPrice * ho.Qty).Sum()+7.5)</th>
+                        <td></td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="d-flex justify-content-around">
+                    @Html.ActionLink("Checkout", "Checkout", "Cart", null, new { @class = "btn btn-success col-5" })
+                    @Html.ActionLink("Continue Shopping", "Index", "Hamper", null, new { @class = "btn btn-secondary col-5" });
+
+                </div>
+            }
+            else
+            {
+
+                <p>Cart is Empty. </p><p>@Html.ActionLink("Buy Something!", "index", "hamper")</p>
+            }
+        </div>
+    </div>
+

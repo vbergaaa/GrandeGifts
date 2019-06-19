@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <header class="row header">
+    <span class="col d-flex justify-content-center align-items-center h-100 h2 heading">
+      <img src="../assets/images/logo.webp" class="pic" />Grande Gifts
+    </span>
+    <!--
+    <div class="h-100">
+
+        <h1 class="heading"></h1>
+    </div>-->
+  </header>
+
+  <div class="searchbar">
+    <span>Search: </span><input [(ngModel)]="keyword" /><button (click)="onSearch()">search</button>
+  </div>
+
+  <div *ngIf="searchWord">
+    <p>Search Results for: <strong>{{keyword}}</strong></p>
+  </div>
+
+  <div *ngFor="let h of data" class="row border m-2">
+    <div class="img-container">
+      <img class="img-fluid" *ngIf="h.picture==null" src="https://grandegiftsryanvandenberg.azurewebsites.net/uploads/hampers/defaultHamper.png" />
+      <img class="img-fluid" *ngIf="h.picture!=null" src="https://grandegiftsryanvandenberg.azurewebsites.net/uploads/hampers/{{h.picture}}" />
+    </div>
+      <div class="ml-3 p-2">
+        <h3>{{h.hamperName}}</h3>
+        <p>{{h.hamperDescription}}</p>
+        <h4>${{h.hamperPrice}}</h4>
+      </div>
+  </div>
+
+  <div *ngIf="">
+    <p>No Results found.</p>
+  </div>
+
+
+
+  <footer class="footer page-footer font-small blue pt-4 mt-auto">
+    <div class="container-fluid text-center text-md-left bg-dark text-secondary">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 mt-md-0 mt-3">
+          <h5 class="text-uppercase">Grande Gifts</h5>
+          <p>
+            Grande Gifts is a fictional company for use as a personal project
+            created by Ryan Vandenberg for TafeNSW.
+          </p>
+        </div>
+        <hr class="clearfix w-100 d-lg-none pb-0">
+        <div class="col-lg-3 col-sm-6 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Contact Us:</h5>
+          <ul class="list-unstyled">
+            <li>
+              <p>Phone: (123) 456 789</p>
+            </li>
+            <li>
+              <p>Email: grandegifts@email.com</p>
+            </li>
+            <li>
+              <p>Address: 44 Wallaby Way, Sydney, 2000, NSW, Australia</p>
+            </li>
+          </ul>
+        </div>
+        <hr class="clearfix w-100 d-sm-none pb-0">
+        <div class="col-lg-3 col-sm-6 mb-md-0 mb-3">
+          <h5 class="text-uppercase">Links:</h5>
+          <ul class="list-unstyled">
+            <li>
+              @Html.ActionLink("Privacy Policy", "PrivacyPolicy", "Home")
+            </li>
+            <li>
+              @Html.ActionLink("Terms of use", "TermsOfUse", "Home")
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright text-center py-3">
+      © 2019 Copyright:
+      <a href="~/">grandegiftsryanvandenberg.azurewebsites.net</a>
+    </div>
+  </footer>
+  <router-outlet></router-outlet>
+</div>
+
+
+

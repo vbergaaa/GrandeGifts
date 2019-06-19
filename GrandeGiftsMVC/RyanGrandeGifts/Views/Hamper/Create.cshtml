@@ -1,0 +1,49 @@
+﻿@model HamperCreateViewModel
+@{
+    ViewData["Title"] = "Create a Hamper";
+}
+
+<div class="col d-flex justify-content-center align-items-center bg-secondary">
+    <div class="card p-3 m-3" style="width: 18rem;">
+        <h2>Create a Hamper</h2>
+        <form asp-action="Create" asp-controller="Hamper" method="post" asp-antiforgery="true"  enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="d-none">
+                <input asp-for="Categories" />
+            </div>
+            <div class="form-group">
+                <label asp-for="HamperName"></label>
+                <input asp-for="HamperName" class="form-control" />
+                <span asp-validation-for="HamperName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HamperDescription"></label>
+                <input asp-for="HamperDescription" class="form-control" />
+                <span asp-validation-for="HamperDescription"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HamperPrice"></label>
+                <input asp-for="HamperPrice" class="form-control" />
+                <span asp-validation-for="HamperPrice"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId"></label>
+                <select asp-items="@(new SelectList(Model.Categories,"CategoryId","CategoryName"))" asp-for="CategoryId" class="form-control"></select>
+                <span asp-validation-for="CategoryId"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture"></label>
+                <input class="form-control" type="file" name="file" />
+                <span asp-validation-for="Picture"></span>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" />
+                @Html.ActionLink("Cancel", "Index", "Hamper", null, new { @class = "btn btn-secondary" })
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+

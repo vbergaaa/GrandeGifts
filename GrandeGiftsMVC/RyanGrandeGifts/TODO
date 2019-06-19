@@ -1,0 +1,19 @@
+﻿THURSDAY
+
+as a user i want consistent btn elements on all forms
+as an admin i want to be able to view the number of times a hamper was purchased
+as a user i want to be able to leave feedback on a hamper I've purchased
+as a user I want to be able to reset my password if i forgoet it
+as an admin i want to sort purchased hampers by recent sales
+as an admin i want to sort purchased hampers by popular hampers in default timeframes
+as a user i want to see a cart icon to add item instead of multi line buttons on smaller screens
+
+BUGS
+
+RESEARCH 
+look into TempData
+look into Claims
+look into JWT (json web tokens) (authentication in mobile apps)
+
+IMPROVEMENTS
+look into transactions (upload multiple entities at once)

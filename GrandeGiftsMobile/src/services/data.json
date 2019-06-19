@@ -1,0 +1,17 @@
+[
+  {
+    "categoryName": "Seasonal Food",
+    "categoryDescription": "Hampers for easter, christmas and other celebrations",
+    "hamperCount": 1
+  },
+  {
+    "categoryName": "Hamper 1",
+    "categoryDescription": "This is the first Hamper!",
+    "hamperCount": 0
+  },
+  {
+    "categoryName": "Baby",
+    "categoryDescription": "Great for mothers of new-borns",
+    "hamperCount": 0
+  }
+]

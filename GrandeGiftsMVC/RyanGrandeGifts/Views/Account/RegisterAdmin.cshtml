@@ -1,0 +1,42 @@
+﻿@model AccountRegisterViewModel
+@{
+    ViewData["Title"] = "Register new admin";
+}
+
+    <div class="col d-flex justify-content-center align-items-center bg-secondary">
+        <div class="card p-3 m-3" style="width: 18rem;">
+            <h2>Register a new Admin</h2>
+            <form asp-action="RegisterAdmin" asp-controller="Account" asp-antiforgery="true" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div class"btn btn-primary">
+                    <input type="submit" />
+                </div>
+            </form>
+        </div>
+    </div>
+

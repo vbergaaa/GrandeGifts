@@ -1,0 +1,17 @@
+﻿priority 1 - Needs a solution
+- calling an empty dataservice constructor to pass in DbContext config
+
+priority 2 - found a work around but wanna improve
+
+priority 3 - curious
+- Do i need to validate a users identity when they are updating a address/booking
+	- i made the key appear in the url but should only ever be visible to the owner
+	- should i create a display key that is used to show a hamper and have a different one to update/delete that is hidden from public
+
+- Should i set up a claim to allow ordering only after an address is created?
+	- is that the right use of a claim? dont think i need to impliment can just add address at ordertime
+
+- Tostring in model. where should it go? Inside a Helper class?
+- State enum
+
+var (totalquanity, totalprice) = GetShopppingCartItems();

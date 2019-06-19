@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAbtsNT1IE8kGvFzbmKWZiKwAAAAACAAAAAAAQZgAAAAEAACAAAACyhiqgSfdzDQYMeTYx1Lp6O63eyw9yvh9cx/iawOYn7AAAAAAOgAAAAAIAACAAAADlO3HX7x003v4RZ5D3wcE/SQqtzhlOKXgF7RSa+nNXLoAAAAAIxmqPOvUB2Kp0yhHJsWEG2fJZ57pe4Dtk4FjhDrFc3Bvlp/slhvYQn+11HTG0DR7TjHZR/6Uxas6KvoTDVuzUnrHXU+MW1IZRhqgT/03AHCnvnpXj9Oc5Fx/kyITa41TkW8arYA/VF2zMXpd61JQnDkhMpV+LpyuHHgsuDqdul0AAAADCAEcacw3DtByilz1VJVNf9xvdKx7QZpwkjWzGx86FTqhWJWv3MHaB7HT66f2lkBuXSU+3+hUBBibR1W9ESSLD</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:grandegiftsryanvandenbergdbserver.database.windows.net,1433%3bInitial Catalog=GrandeGiftsRyanVandenberg_db%3bUser Id=vbergaa%40grandegiftsryanvandenbergdbserver%3bPassword=Database123</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="RyanGrandeGifts.Services.MyDbContext">
+      <Value>Data Source=tcp:grandegiftsryanvandenbergdbserver.database.windows.net,1433%3bInitial Catalog=GrandeGiftsRyanVandenberg_db%3bUser Id=vbergaa%40grandegiftsryanvandenbergdbserver%3bPassword=Database123</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

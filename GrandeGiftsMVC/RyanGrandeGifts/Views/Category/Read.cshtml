@@ -1,0 +1,18 @@
+﻿@model CategoryReadViewModel
+@{
+    ViewData["Title"] = "Read";
+}
+
+<div class="col d-flex justify-content-center align-items-center bg-secondary">
+    <div class="card p-3 m-3" style="width: 18rem;">
+        <div class="d-flex justify-content-center align-items-center w-100"></div>
+        
+        <h3 class="text-center">@Model.CategoryName</h3>
+        <div class="card-body text-center">
+            <p class="card-title text-left">@Model.CategoryDescription</p>
+            <p>@Html.ActionLink("Edit", "Update", "Category", new { id = Model.CategoryId })</p>
+            <p>@Html.ActionLink("Delete", "Delete", "Category", new { id = Model.CategoryId }, new { @class = "text-danger" })</p>
+            <p>@Html.ActionLink("Back to Categories", "Index", "Category")</p>
+        </div>
+    </div>
+</div>

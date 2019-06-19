@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RyanGrandeGifts", "RyanGrandeGifts\RyanGrandeGifts.csproj", "{189D856E-4DFF-4257-A0D4-17619A62EB34}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GrandeGiftsMobile", "..\GrandeGiftsMobile\", "{647AC259-64C4-4C15-8E29-9EC952A85E56}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64747"
+		Debug.AspNetCompiler.PhysicalPath = "..\GrandeGiftsMobile\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64747\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64747"
+		Release.AspNetCompiler.PhysicalPath = "..\GrandeGiftsMobile\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64747\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64747"
+		SlnRelativePath = "..\GrandeGiftsMobile\"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "GrandeGiftsAngular", "..\GrandeGiftsAngular\", "{543E9163-28BE-41DC-B477-D5D598019861}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_64749"
+		Debug.AspNetCompiler.PhysicalPath = "..\GrandeGiftsAngular\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64749\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_64749"
+		Release.AspNetCompiler.PhysicalPath = "..\GrandeGiftsAngular\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_64749\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "64749"
+		SlnRelativePath = "..\GrandeGiftsAngular\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{189D856E-4DFF-4257-A0D4-17619A62EB34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{189D856E-4DFF-4257-A0D4-17619A62EB34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{189D856E-4DFF-4257-A0D4-17619A62EB34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{189D856E-4DFF-4257-A0D4-17619A62EB34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{647AC259-64C4-4C15-8E29-9EC952A85E56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{647AC259-64C4-4C15-8E29-9EC952A85E56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{647AC259-64C4-4C15-8E29-9EC952A85E56}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{647AC259-64C4-4C15-8E29-9EC952A85E56}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{543E9163-28BE-41DC-B477-D5D598019861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543E9163-28BE-41DC-B477-D5D598019861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543E9163-28BE-41DC-B477-D5D598019861}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{543E9163-28BE-41DC-B477-D5D598019861}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D12CA544-9024-4A13-A384-69BF96D2E56B}
+	EndGlobalSection
+EndGlobal

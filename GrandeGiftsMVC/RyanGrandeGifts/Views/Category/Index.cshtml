@@ -1,0 +1,40 @@
+﻿@model CategoryIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="col">
+    <h2>Category List</h2>
+    @if (Model.Categories.Count() > 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Description</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var cat in Model.Categories)
+                {
+                    <tr>
+                        <td>@cat.CategoryName</td>
+                        <td>@cat.CategoryDescription</td>
+                        <td>@Html.ActionLink("View","Read","Category",new { id = cat.CategoryId })</td>
+                        <td>@Html.ActionLink("Edit","Update","Category",new { id = cat.CategoryId })</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Categories found. Add a new category to begin</p>
+    }
+    @Html.ActionLink("+ Add new category", "Create", "Category")
+
+</div>

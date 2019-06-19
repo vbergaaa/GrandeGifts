@@ -1,0 +1,69 @@
+﻿@model CartCheckoutViewModel
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="col d-flex justify-content-center align-items-center bg-secondary">
+    <div class="card p-3 m-3" style="width: 36rem;">
+        <div class="d-flex align-items-center w-100">
+            <h2>Confirm Checkout</h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Qty</th>
+                        <th>Total Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var ho in Model.HamperOrders)
+                    {
+                    <tr>
+                        <td>@ho.Hamper.HamperName</td>
+                        <td>@ho.Qty</td>
+                        <td>$@(ho.Hamper.HamperPrice*ho.Qty)</td>
+                    </tr>
+                    }
+                <tr>
+                    <td>Booking fee</td>
+                    <td></td>
+                    <td>$7.50</td>
+                </tr>
+                    <tr>
+                        <th>Total</th>
+                        <td></td>
+                        <th>$@(Model.HamperOrders.Sum(ho => ho.Hamper.HamperPrice * ho.Qty) + 7.5)</th>
+                    </tr>
+                </tbody>
+            </table>
+                @if (Model.Addresses.Count() == 0)
+                {
+                    <p>You need to add an address to complete an order.</p>
+                    @Html.ActionLink("Add an address", "Create", "Address", new { returnUrl = "/Cart/Checkout" })
+                }
+                else
+                {
+                    <form asp-action="Checkout" asp-controller="Cart" asp-antiforgery="true" method="post">
+                        <div class="form-group">
+                            <label class="form-label" asp-for="Address">Choose an Address</label>
+                            <select class="form-control" asp-for="Address" asp-items="AddressHelper.AddressesToSelectList(Model.Addresses)"></select>
+                            <span asp-validation-for="Address" />
+
+                        </div>
+                        <div>
+                            <span>Address not listed?</span><br />@Html.ActionLink(" Add new address", "Create", "Address", new { returnUrl = "/Cart/Checkout" }, new { style = "" })
+                        </div>
+                        <div class="d-flex justify-content-around mt-3">
+                            <input type="submit" class="btn btn-success col-5" value="Purchase" />
+                            @Html.ActionLink("Back", "Index", "Cart", null, new { @class = "btn btn-secondary col-5" })
+                        </div>
+                    </form>
+                }
+
+
+</div>
+    </div>
+</div>
+

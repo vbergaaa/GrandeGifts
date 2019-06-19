@@ -1,0 +1,101 @@
+﻿@model HomeIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-7 col-xl-8">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h4 class="px-2 py-md-2 py-0">Company Background</h4>
+                        <p class="px-2">
+                            GrandeGifts is a fictional company that similuates providing pre-made food hampers for
+                            the public to buy. <br />
+                            GrandeGifts was founded in 2019 by Ryan Vandenberg, for the purpose of devoloping and
+                            demonstrating his programming skills using ASP.NET Core and MVC Technologies.
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <h4 class="px-2">Company Goals</h4>
+                        <p class="px-2">
+                            GrandeGifts aims to provide Australia with great food at great value!
+                            The hampers are created using a selection the most popular Australian meals,
+                            and as they are sourceddirectly from manufacturers, they can be provided to
+                            you at great prices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col align-items-center justify-content-center">
+            <h4 class="mx-auto text-center" >Featured Hampers</h4>
+            <div id="carouselExampleIndicators" class="carousel slide w325 mx-auto border border-dark p-3" data-ride="carousel">
+                <ol class="carousel-indicators bg-dark" style="opacity:0.5">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    @foreach (var h in Model.TopHampers)
+                    {
+                        if (Model.TopHampers.IndexOf(h) == 0)
+                        {
+                    <div class="carousel-item active">
+                        <h5>@h.HamperName</h5>
+                        <img class="d-block w-100" src="~/uploads/hampers/@h.Picture" alt="First slide">
+                        <p>@h.HamperDescription</p>
+                        <div class="container">
+                            <div class="row pb-3">
+                                <div class="col-6">
+                                    <h5><strong>$@h.HamperPrice</strong></h5>
+                                </div>
+                                <div class="col-6">
+                                    @Html.ActionLink("Add To Cart", "Add", "Cart", new { id = h.HamperId, qty=1, url = Context.Request.Path.ToString() }, new { @class = "btn btn-success" })
+                                </div>
+                                @Html.ActionLink("View All Hampers", "Index", "Hamper", null, new { @class = "col text-center" })
+                                <br />
+                                <br />
+                            </div>
+                        </div>
+                    </div>
+                        }
+                        else
+                        {
+                            <div class="carousel-item">
+                                <h5>@h.HamperName</h5>
+                                <img class="d-block w-100" src="~/uploads/hampers/@h.Picture" alt="First slide">
+                                <p>@h.HamperDescription</p>
+                                <div class="container">
+                                    <div class="row pb-3">
+                                        <div class="col-6">
+                                            <h5><strong>$@h.HamperPrice</strong></h5>
+                                        </div>
+                                        <div class="col-6">
+                                            @Html.ActionLink("Add To Cart", "Add", "Cart", new { id = h.HamperId, qty = 1, url = Context.Request.Path.ToString() }, new { @class = "btn btn-success" })
+                                        </div>
+                                        @Html.ActionLink("View All Hampers", "Index", "Hamper", null, new { @class = "col text-center" })
+                                        <br />
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon p-3 bg-dark" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon p-3 bg-dark" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>

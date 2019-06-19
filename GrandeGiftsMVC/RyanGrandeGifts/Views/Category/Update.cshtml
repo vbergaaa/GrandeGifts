@@ -1,0 +1,30 @@
+﻿@model CategoryUpdateViewModel
+@{
+    ViewData["Title"] = "Update a Category";
+}
+
+<div class="col d-flex justify-content-center align-items-center bg-secondary">
+    <div class="card p-3 m-3" style="width: 18rem;">
+        <h2>Update a category</h2>
+        <form asp-action="Update" asp-controller="Category"  asp-antiforgery="true" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div class="d-none">
+                <input asp-for="CategoryId" />
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryName"></label>
+                <input asp-for="CategoryName" class="form-control" />
+                <span asp-validation-for="CategoryName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryDescription"></label>
+                <textarea asp-for="CategoryDescription" class="form-control"></textarea>
+                <span asp-validation-for="CategoryDescription"></span>
+            </div>
+            <div>
+                <input type="submit" class="btn btn-primary" />
+                @Html.ActionLink("Cancel", "Index", "Category", null, new { @class = "btn btn-secondary" })
+            </div>
+        </form>
+    </div>
+</div>

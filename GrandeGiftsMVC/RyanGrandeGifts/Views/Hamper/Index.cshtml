@@ -1,0 +1,104 @@
+﻿@model HamperIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <div class="col">
+        <div class="navbar navbar-light navbar-expand-xs bg-light mt-2">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#filterOptions" aria-controls="filterOptions" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <h4 class="navbar-brand ml-3 mr-auto">Filter Options</h4>
+
+            <div class="collapse navbar-collapse" id="filterOptions">
+                <form asp-action="Filter" , asp-controller="Hamper" asp-antiforgery="true" method="post" class="form-inline">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <div class="form-group m-2">
+                        <label class="px-2" asp-for="FilterKeyword">Search For:</label>
+                        <input class="form-control" asp-for="FilterKeyword" />
+                    </div>
+                    <div class="form-group m-2">
+                        <label class="px-2">In Category:</label>
+                        <select asp-items="@(new SelectList(Model.Categories, "CategoryName", "CategoryName"))" asp-for="FilterCategoryName" class="form-control"></select>
+                    </div>
+                    <div class="form-group m-2 w-auto">
+                        <label class="px-2">Minimum Price:</label>
+                        <input asp-for="FilterMinPrice" class="form-control col-4" />
+                    </div>
+                    <div class="form-group m-2">
+                        <label class="px-2">Maximum Price</label>
+                        <input asp-for="FilterMaxPrice" class="form-control col-4" />
+                    </div>
+                    <div class="form-group m-2">
+                        <input asp-for="IncludeInactive" class="form-check" />
+                        <label class="form-check-label">Show Deactivated Hampers?</label>
+                        
+                    </div>
+                    <div>
+                        <input class="btn btn-dark" type="submit" value="search" />
+                    </div>
+                </form>
+            </div>
+        </div>
+        <h2>Hamper List</h2>
+
+
+
+
+        @if (Model.Hampers.Count() > 0)
+        {
+            <div class="container">
+                <div class="row">
+                    @foreach (var h in Model.Hampers)
+                    {
+                    <div class="col-xs-12 col-md-6 col-xl-4">
+                        <div class="card mb-4" style="width: 20rem;">
+                            @if (h.Picture == null)
+                            {
+                                <img class="card-img-top" src="~/uploads/hampers/DefaultHamper.png" alt="Card image cap">
+
+                            }
+                            else
+                            {
+                                <img class="card-img-top" src="~/uploads/hampers/@h.Picture" alt="Card image cap">
+                            }
+                            <div class="card-body">
+                                <h5 class="card-title">@h.HamperName</h5>
+                                <p class="card-text">@h.HamperDescription</p>
+                                <div class="d-flex justify-content-around">
+                                    @Html.ActionLink("View", "Read", "Hamper", new { id = h.HamperId }, new { @class = "btn btn-dark col-5" })
+                                    @Html.ActionLink("Add To Cart", "Add", "Cart", new { id = h.HamperId, url = Context.Request.Path.ToString(), qty = 1 }, new { @class = "btn btn-success col-5" })
+                                </div>
+                                @if (User.IsInRole("Admin"))
+                                {
+                            <div class="d-flex justify-content-around">
+                                @Html.ActionLink("Edit", "Update", "Hamper", new { id = h.HamperId }, new { @class = "btn btn-warning col-5" })
+                                @if (h.Active)
+                                {
+                                    @Html.ActionLink("Deactivate", "Retire", "Hamper", new { id = h.HamperId }, new { @class = "btn btn-danger col-5" })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Reactivate", "Reactivate", "Hamper", new { id = h.HamperId }, new { @class = "btn btn-danger col-5" })
+                                }
+
+                            </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                        
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <p> No Hampers found. Please adjust your search results </p>
+        }
+        @if (User.IsInRole("Admin"))
+        {
+            @Html.ActionLink("+ Add new Hamper", "Create", "Hamper")
+        }
+    </div>
+

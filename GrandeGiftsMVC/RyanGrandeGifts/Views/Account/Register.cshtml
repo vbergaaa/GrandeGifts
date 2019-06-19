@@ -1,0 +1,50 @@
+﻿@model AccountRegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+    <div class="col d-flex justify-content-center align-items-center bg-secondary">
+        <div class="card p-3 m-3" style="width: 18rem;">
+            <h2>Register an account</h2>
+            <form asp-action="Register" asp-controller="Account" asp-antiforgery="true" method="post">
+                <div asp-validation-summary="ModelOnly"></div>
+                <div class="d-none">
+                    <input asp-for="ReturnUrl" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FirstName">First Name</label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">Last Name</label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="UserName">Username</label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="ConfirmPassword">Confirm Password</label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <div class="d-flex justify-content-around">
+                    <input type="submit" value="Create" class="btn btn-primary col-5" />
+                    <a class="btn btn-secondary col-5" href="@Model.ReturnUrl">Back</a>
+                </div>
+                <br /><p class="text-center">Already have an account? </p><p class="text-center" style="line-height:0">@Html.ActionLink("Log in", "Login", "Account", new { returnUrl = Model.ReturnUrl})</p>
+            </form>
+        </div>
+    </div>
+
+
+
+

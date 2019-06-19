@@ -1,0 +1,46 @@
+﻿@model ProductIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+    <div class="col">
+        <h2>Product List</h2>
+        @if (Model.Products.Count() > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Model.Products)
+                    {
+                        <tr>
+                            <td>@p.ProductName</td>
+                            <td>@Html.ActionLink("Edit", "Update", "Product", new { id = p.ProductId })</td>
+                            <td>@Html.ActionLink("Delete", "Delete", "Product", new { id = p.ProductId }, new { @class = "text-danger" })</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No Products found.</p>
+        }
+        <form asp-controller="Product" asp-action="AddProducts"  asp-antiforgery="true" method="post">
+            <div asp-validation-summary="ModelOnly"></div>
+            <div>
+                <label>Add new products: </label>
+                <textarea type="text" name="productsStr" ></textarea>
+            </div>
+            <div>
+                <input type="submit" />
+            </div>
+        </form>
+    </div>

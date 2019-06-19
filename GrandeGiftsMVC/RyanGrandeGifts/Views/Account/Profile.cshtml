@@ -1,0 +1,36 @@
+﻿@model AccountProfileViewModel
+@{
+    ViewData["Title"] = "Profile";
+
+}
+
+<div class="col d-flex justify-content-center align-items-center bg-secondary">
+    <div class="card p-3 m-3" style="width: 18rem;">
+        <div class="d-flex justify-content-center align-items-center w-100"></div>
+        @if (Model.ProfilePictureUrl == "")
+        {
+            <i class="far fa-user fa-7x text-center pt-4"></i>
+        }
+        else
+        {
+            <img class="card-img-top" src="@Model.ProfilePictureUrl" alt="Card image cap">
+        }
+
+    <div class="card-body text-center">
+        <h5 class="card-title">@Model.FirstName</h5>
+        <h5 class="card-title">@Model.LastName</h5>
+        <p>@Html.ActionLink("Edit Profile", "Update", "Account")</p>
+        <p>@Html.ActionLink("Change Password", "UpdatePassword", "Account")</p>
+        <p>@Html.ActionLink("View Adresses", "Index", "Address")</p>
+        <p>@Html.ActionLink("Order History", "Orders", "Account")</p>
+        @if (User.IsInRole("Admin"))
+        {
+            <p>@Html.ActionLink("Create New Admin", "RegisterAdmin", "Account")</p>
+        }
+
+
+    </div>
+    </div>
+</div>
+
+

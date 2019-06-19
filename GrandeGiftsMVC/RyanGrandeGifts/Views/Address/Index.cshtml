@@ -1,0 +1,31 @@
+﻿@model AddressIndexViewModel
+@{
+    ViewData["Title"] = "Profile";
+
+}
+
+<div class="col d-flex justify-content-center align-items-center bg-secondary">
+    <div class="card p-3 m-3" style="width: 18rem;">
+        <h2> Addresses for @Model.UserName</h2>
+        @if (Model.Addresses.Count() == 0)
+        {
+            <p>No Addresses Found</p>
+            <p>@Html.ActionLink("Add an address", "Create", "Address")</p>
+        }
+        else
+        {
+            @foreach (var address in Model.Addresses)
+            {
+                <p>
+                    <span>@AddressHelper.AddressToString(address)</span>
+                    @Html.ActionLink("Edit", "Update", "Address", new { id = address.AddressId })
+                    @Html.ActionLink("Delete", "Delete", "Address", new { id = address.AddressId }, new { @class = "text-danger" })
+                </p>
+            }
+    <p>@Html.ActionLink("Add another address", "Create", "Address")</p>
+        }
+        <p>@Html.ActionLink("Back To Profile","Profile","Account")</p>
+    </div>
+</div>
+
+
