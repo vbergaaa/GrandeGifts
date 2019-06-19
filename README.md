@@ -1,5 +1,3 @@
-#GrandeGifts
-
 GrandeGifts is a fictional company that I have created a website for. The main task was to create a shopping cart system that allowed a user to buy purchase hampers.
 
 It was assigned to me as a project by TafeNSW as a way for me to demonstrate my skills by creating an ASP.NET Core web application with an accompaning react native app, and angular 6 interface.
